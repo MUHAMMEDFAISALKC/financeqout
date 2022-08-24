@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+        History-Transactons
+{% endblock %}
+
+{% block main %}
+
+    <H1><center>Stock Transaction History</center></H1>
+    <br>
+    <H4 style="text-align:left;"> Account Holder: {{name}}</H4>
+    <table id="table_id" class="stick-header">
+        <thead>
+            <tr>
+                <th>Date - Time</th>
+                <th>Symbol</th>
+                <th>Company</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>total</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <td>{{row.timestamp}}</td>
+                <td>{{row.symbol}}</td>
+                <td>{{row.company}}</td>
+                <td>{{row.shares}}</td>
+                <td>$ {{row.price}}</td>
+                <td>$ {{row.total}}</td>
+                <td class="type" style="color: #4CC417;"><b>{{row.type}}</b></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}

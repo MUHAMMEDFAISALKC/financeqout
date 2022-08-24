@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+{% block main %}
+    <form action="/quote" method="post">
+        <div class="form-group">
+            <input list="symbol" class="form-control" name="symbol" autocomplete="off" autofocus placeholder="Name of Compony" type="text">
+            <datalist id="symbol">
+                {% for row in rows %}
+                <option class="form-control" value="{{row.name}}">{{row.symbol}}</option>
+                {% endfor %}
+            </datalist>
+           <!-- <input class="form-control" name="symbol" autocomplete="off" autofocus placeholder="Name of Compony" type="text"> -->
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+{% block main %}
+
+    <div>
+        <table>
+            <tr>
+                <th>
+                    Symbol
+                </th>
+                <th>
+                    Company
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Shares
+                </th>
+                <th>
+                    Total
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    {{ symbol }}
+                </td>
+                <td>
+                    {{ company }}
+                </td>
+                <td>
+                    {{ price }}
+                </td>
+                <td>
+                    {{ shares }}
+                </td>
+                <td>
+                    {{ total }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    CASH
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    {{ cash }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Balance
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    {{ bcash }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form action="/sell" method="post">
+                        <input type="hidden" name="confirm" value="confirm">
+                        <input type="hidden" name="tcash" value="{{total}}">
+                        <input type="hidden" name="fid" value="2">
+                        <button type="submit" class="btn btn-primary" value="confirm">Confirm</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/sell" method="post">
+                        <input type="hidden" name="cancel" value="cancel">
+                        <input type="hidden" name="fid" value="3">
+                        <button type="submit" class="btn btn-primary">Cancel</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+{% endblock %}

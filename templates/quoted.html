@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted: {{ rows["symbol"] }}
+{% endblock %}
+{% block main %}
+    <div class="section">
+        <table>
+            <thead>
+                <tr>
+                    {% for row in rows.keys() %}
+                    <th>
+                        {{row}}
+                    </th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        {{ rows["symbol"] }}
+                    </td>
+                    <td>
+                        {{ rows["name"] }}
+                    </td>
+                    <td>
+                        {{ usd(rows["price"]) }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

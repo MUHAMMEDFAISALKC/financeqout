@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+{% block main %}
+    <h6 class="frame">welcome {{name}}!</h6>
+    <br>
+    <H6 style="text-align:left; position: relative; left:40px; top:40px;"> Stock Holder: {{name}}</H6>
+    <div class="headin">
+        <H2><center>My Stocks </center></H2>
+    </div>
+    <div class="leftbox">
+        <table id="table_id">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Company</th>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{row.symbol}}</td>
+                    <td>{{row.company}}</td>
+                    <td>{{row.shares}}</td>
+                    <td>$ {{row.price}}</td>
+                    <td>$ {{row.total}}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td>Stock Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>$ {{ stotal }}</td>
+                </tr>
+                <tr>
+                    <td>CASH</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>$ {{ cash }}</td>
+                </tr>
+                <tr>
+                    <td>Balance</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>$ {{ bcash }}</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+{% endblock %}
